@@ -10,26 +10,32 @@ export default function Hero() {
       <div className="mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-center">
         <div className="space-y-7">
           <p className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
-            Available for Frontend Roles
+            Placeholder: Available for Frontend Roles
           </p>
 
           <h1 className="font-display text-4xl font-semibold leading-tight tracking-tight text-[color:var(--text-strong)] sm:text-5xl lg:text-6xl">
-            Hi, I&apos;m Your Name.
+            Hi, I&apos;m [Your Name].
             <span className="block text-[color:var(--brand)]">
-              I build things for the web.
+              [Your Title] - I build things for the web.
             </span>
           </h1>
 
           <p className="max-w-2xl text-base leading-8 text-[color:var(--text-muted)] sm:text-lg">
-            I design and develop fast, accessible digital experiences with React,
-            Next.js, and modern UI systems. I care about clean architecture,
-            delightful interaction, and measurable product impact.
+            [Replace this short bio with 2-3 sentences about your background,
+            strengths, and impact.] I design and develop fast, accessible
+            digital experiences with React and Next.js.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
             <a
-              href="#projects"
+              href="/resume.pdf"
               className="rounded-full bg-[color:var(--brand)] px-6 py-3 text-sm font-semibold text-[color:var(--surface)] transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              Download Resume
+            </a>
+            <a
+              href="#projects"
+              className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-[color:var(--text-strong)] transition-colors duration-200 hover:border-[color:var(--brand)] hover:text-[color:var(--brand)]"
             >
               View Projects
             </a>
@@ -37,7 +43,7 @@ export default function Hero() {
               href="#contact"
               className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-[color:var(--text-strong)] transition-colors duration-200 hover:border-[color:var(--brand)] hover:text-[color:var(--brand)]"
             >
-              Let&apos;s Connect
+              Contact Me
             </a>
           </div>
         </div>
