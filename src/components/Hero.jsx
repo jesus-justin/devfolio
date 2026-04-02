@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section
@@ -9,21 +11,14 @@ export default function Hero() {
 
       <div className="mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-center">
         <div className="space-y-7">
-          <p className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--text-muted)]">
-            Placeholder: Available for Frontend Roles
-          </p>
-
           <h1 className="font-display text-4xl font-semibold leading-tight tracking-tight text-[color:var(--text-strong)] sm:text-5xl lg:text-6xl">
-            Hi, I&apos;m [Your Name].
-            <span className="block text-[color:var(--brand)]">
-              [Your Title] - I build things for the web.
-            </span>
+            Welcome to my Portfolio, I am
+            <span className="block text-[color:var(--brand)]">Jesus Justin B. Mercado</span>
           </h1>
 
           <p className="max-w-2xl text-base leading-8 text-[color:var(--text-muted)] sm:text-lg">
-            [Replace this short bio with 2-3 sentences about your background,
-            strengths, and impact.] I design and develop fast, accessible
-            digital experiences with React and Next.js.
+            I am currently a 3rd Year BSIT Major in Business Analytics Student
+            specializing.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -49,29 +44,15 @@ export default function Hero() {
         </div>
 
         <div className="rounded-3xl border border-white/15 bg-[color:var(--surface)]/80 p-6 shadow-[0_30px_80px_-40px_rgba(10,14,35,0.85)] backdrop-blur-xl sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--text-muted)]">
-            Core Toolkit
-          </p>
-          <ul className="mt-4 grid grid-cols-2 gap-3 text-sm text-[color:var(--text-strong)] sm:text-base">
-            <li className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-              Next.js
-            </li>
-            <li className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-              React
-            </li>
-            <li className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-              Tailwind CSS
-            </li>
-            <li className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-              JavaScript
-            </li>
-            <li className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-              Node.js
-            </li>
-            <li className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-              GitHub
-            </li>
-          </ul>
+          <div className="overflow-hidden rounded-xl">
+            <Image
+              src="/toolkit-showcase.png"
+              alt="Web developer toolkit skills"
+              width={600}
+              height={400}
+              className="h-full w-full object-contain"
+            />
+          </div>
         </div>
       </div>
     </section>

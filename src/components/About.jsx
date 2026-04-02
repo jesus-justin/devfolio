@@ -6,7 +6,7 @@ export default function About() {
       <div className="mx-auto grid w-full max-w-6xl gap-10 rounded-3xl border border-white/15 bg-[color:var(--surface)]/85 p-6 shadow-[0_30px_70px_-45px_rgba(12,20,44,0.8)] backdrop-blur-xl sm:p-10 lg:grid-cols-[280px_1fr] lg:items-center">
         <div className="mx-auto w-full max-w-[280px] overflow-hidden rounded-2xl border border-white/20 bg-white/10">
           <Image
-            src="/profile.jpg"
+            src="/developer_profile-picture.jpg"
             alt="Developer profile photo"
             width={560}
             height={560}

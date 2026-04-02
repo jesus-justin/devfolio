@@ -2,18 +2,18 @@ export default function Contact() {
   const links = [
     {
       label: "Email",
-      href: "mailto:youremail@example.com",
-      value: "youremail@example.com",
+      href: "mailto:mjesusjustin@gmail.com",
+      value: "mjesusjustin@gmail.com",
     },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/yourusername",
-      value: "linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/jesus-justin-mercado-5a864933b",
+      value: "linkedin.com/in/jesus-justin-mercado-5a864933b",
     },
     {
       label: "GitHub",
-      href: "https://github.com/yourusername",
-      value: "github.com/yourusername",
+      href: "https://github.com/jesus-justin",
+      value: "github.com/jesus-justin",
     },
   ];
 
