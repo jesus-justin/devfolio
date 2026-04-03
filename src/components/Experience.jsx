@@ -1,13 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import experience from "../data/experience";
+import certifications from "../data/certifications";
 import { sectionReveal, staggerContainer, staggerItem } from "./animationVariants";
 
 export default function Experience() {
   return (
     <motion.section
-      id="experience"
+      id="certifications"
       variants={sectionReveal}
       initial="hidden"
       whileInView="visible"
@@ -23,49 +24,75 @@ export default function Experience() {
             variants={staggerItem}
             className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--text-muted)]"
           >
-            Experience
+            Credentials
           </motion.p>
           <motion.h2
             variants={staggerItem}
             className="font-display text-3xl font-semibold tracking-tight text-[color:var(--text-strong)] sm:text-4xl"
           >
-            Professional experience delivering dependable digital products.
+            Certifications and Awards
           </motion.h2>
         </div>
 
-        <motion.div variants={staggerContainer} className="relative border-l border-white/20 pl-6 sm:pl-8">
-          {experience.map((item, index) => (
-            <motion.article
-              key={`${item.company}-${item.role}`}
-              variants={staggerItem}
-              className={index === experience.length - 1 ? "relative" : "relative pb-10"}
-            >
-              <span className="absolute -left-[31px] top-1 h-3.5 w-3.5 rounded-full border-2 border-[color:var(--surface)] bg-[color:var(--brand)] sm:-left-[39px]" />
+        <motion.div variants={staggerContainer} className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {certifications.map((item) => {
+            const filePath = encodeURI(`/certifications_pictures/${item.fileName}`);
 
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <h3 className="text-xl font-semibold tracking-tight text-[color:var(--text-strong)]">
-                    {item.role}
-                  </h3>
-                  <p className="mt-1 text-sm font-medium text-[color:var(--text-muted)]">
-                    {item.company}
-                  </p>
-                </div>
+            return (
+              <motion.article
+                key={item.fileName}
+                variants={staggerItem}
+                className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/5 p-4"
+              >
+              <div className="mb-4 flex items-center justify-between gap-2">
                 <p className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-semibold tracking-wide text-[color:var(--text-muted)]">
-                  {item.date}
+                  {item.type === "pdf" ? "PDF" : "Image"}
+                </p>
+                <p className="text-xs font-medium text-[color:var(--text-muted)]">
+                  {item.issuer}
                 </p>
               </div>
 
-              <ul className="mt-4 space-y-2.5 text-sm leading-7 text-[color:var(--text-muted)]">
-                {item.description.map((point) => (
-                  <li key={point} className="flex gap-2.5">
-                    <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand)]" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.article>
-          ))}
+              {item.type === "image" ? (
+                <div className="overflow-hidden rounded-xl border border-white/10">
+                  <Image
+                    src={filePath}
+                    alt={item.title}
+                    width={900}
+                    height={600}
+                    className="h-44 w-full object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="overflow-hidden rounded-xl border border-white/10 bg-[color:var(--surface)]/80">
+                  <iframe
+                    src={`${filePath}#toolbar=0&navpanes=0&scrollbar=0`}
+                    title={`${item.title} preview`}
+                    className="h-44 w-full"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+
+              <h3 className="mt-4 text-base font-semibold leading-7 text-[color:var(--text-strong)]">
+                {item.title}
+              </h3>
+
+              <p className="mt-2 text-sm leading-6 text-[color:var(--text-muted)]">
+                {item.description}
+              </p>
+
+              <a
+                href={filePath}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex w-fit rounded-full border border-white/20 px-4 py-2 text-xs font-semibold tracking-wide text-[color:var(--text-strong)] transition-all duration-200 hover:border-[color:var(--brand)] hover:text-[color:var(--brand)]"
+              >
+                View Credential
+              </a>
+              </motion.article>
+            );
+          })}
         </motion.div>
       </motion.div>
     </motion.section>
