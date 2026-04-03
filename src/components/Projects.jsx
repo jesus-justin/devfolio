@@ -71,14 +71,20 @@ function ProjectCard({ project }) {
           >
             GitHub
           </a>
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glow-cta rounded-full bg-[color:var(--brand)] px-4 py-2 text-xs font-semibold tracking-wide text-[color:var(--bg)] transition-transform duration-200 hover:-translate-y-0.5"
-          >
-            Live Site
-          </a>
+          {project.live ? (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glow-cta rounded-full bg-[color:var(--brand)] px-4 py-2 text-xs font-semibold tracking-wide text-[color:var(--bg)] transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              Live Site
+            </a>
+          ) : (
+            <span className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold tracking-wide text-[color:var(--text-muted)]">
+              Demo on request
+            </span>
+          )}
         </div>
       </div>
     </motion.article>
