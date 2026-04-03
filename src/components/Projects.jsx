@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import VanillaTilt from "vanilla-tilt";
 import projects from "../data/projects";
@@ -92,12 +92,26 @@ function ProjectCard({ project }) {
 }
 
 export default function Projects() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(media.matches);
+    update();
+    media.addEventListener("change", update);
+
+    return () => {
+      media.removeEventListener("change", update);
+    };
+  }, []);
+
   return (
     <motion.section
       id="projects"
       variants={sectionReveal}
-      initial="hidden"
-      whileInView="visible"
+      initial={isMobile ? "visible" : "hidden"}
+      animate={isMobile ? "visible" : undefined}
+      whileInView={isMobile ? undefined : "visible"}
       viewport={{ once: true, amount: 0.2 }}
       className="px-5 pb-24 pt-4 sm:px-8"
     >

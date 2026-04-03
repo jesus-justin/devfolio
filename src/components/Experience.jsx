@@ -1,17 +1,32 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import certifications from "../data/certifications";
 import { sectionReveal, staggerContainer, staggerItem } from "./animationVariants";
 
 export default function Experience() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(media.matches);
+    update();
+    media.addEventListener("change", update);
+
+    return () => {
+      media.removeEventListener("change", update);
+    };
+  }, []);
+
   return (
     <motion.section
       id="certifications"
       variants={sectionReveal}
-      initial="hidden"
-      whileInView="visible"
+      initial={isMobile ? "visible" : "hidden"}
+      animate={isMobile ? "visible" : undefined}
+      whileInView={isMobile ? undefined : "visible"}
       viewport={{ once: true, amount: 0.22 }}
       className="px-5 pb-24 pt-4 sm:px-8"
     >
@@ -64,14 +79,19 @@ export default function Experience() {
                   />
                 </div>
               ) : (
-                <div className="overflow-hidden rounded-xl border border-white/10 bg-[color:var(--surface)]/80">
-                  <iframe
-                    src={`${filePath}#toolbar=0&navpanes=0&scrollbar=0`}
-                    title={`${item.title} preview`}
-                    className="h-44 w-full"
-                    loading="lazy"
-                  />
-                </div>
+                <>
+                  <div className="hidden overflow-hidden rounded-xl border border-white/10 bg-[color:var(--surface)]/80 md:block">
+                    <iframe
+                      src={`${filePath}#toolbar=0&navpanes=0&scrollbar=0`}
+                      title={`${item.title} preview`}
+                      className="h-44 w-full"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex h-44 items-center justify-center rounded-xl border border-white/10 bg-[color:var(--surface)]/80 text-sm text-[color:var(--text-muted)] md:hidden">
+                    PDF preview available on tap
+                  </div>
+                </>
               )}
 
               <h3 className="mt-4 text-base font-semibold leading-7 text-[color:var(--text-strong)]">
