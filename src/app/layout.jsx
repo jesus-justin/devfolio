@@ -1,5 +1,6 @@
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import ParticleBackground from "../components/ParticleBackground";
 
 const displayFont = Space_Grotesk({
   variable: "--font-display",
@@ -24,7 +25,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${displayFont.variable} ${monoFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="relative min-h-full overflow-x-hidden bg-[color:var(--bg)] text-[color:var(--text-strong)]">
+        <ParticleBackground />
+        <div className="relative z-10 flex min-h-full flex-col">{children}</div>
+      </body>
     </html>
   );
 }

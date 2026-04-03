@@ -1,22 +1,43 @@
+"use client";
+
+import { motion } from "framer-motion";
 import experience from "../data/experience";
+import { sectionReveal, staggerContainer, staggerItem } from "./animationVariants";
 
 export default function Experience() {
   return (
-    <section id="experience" className="px-5 pb-24 pt-4 sm:px-8">
-      <div className="mx-auto w-full max-w-6xl rounded-3xl border border-white/15 bg-[color:var(--surface)]/80 p-6 shadow-[0_30px_70px_-45px_rgba(12,20,44,0.8)] backdrop-blur-xl sm:p-10">
+    <motion.section
+      id="experience"
+      variants={sectionReveal}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.22 }}
+      className="px-5 pb-24 pt-4 sm:px-8"
+    >
+      <motion.div
+        variants={staggerContainer}
+        className="mx-auto w-full max-w-6xl rounded-3xl border border-white/15 bg-[color:var(--surface)]/80 p-6 shadow-[0_30px_70px_-45px_rgba(12,20,44,0.8)] backdrop-blur-xl sm:p-10"
+      >
         <div className="mb-8 space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--text-muted)]">
+          <motion.p
+            variants={staggerItem}
+            className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--text-muted)]"
+          >
             Experience
-          </p>
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-[color:var(--text-strong)] sm:text-4xl">
+          </motion.p>
+          <motion.h2
+            variants={staggerItem}
+            className="font-display text-3xl font-semibold tracking-tight text-[color:var(--text-strong)] sm:text-4xl"
+          >
             Professional experience delivering dependable digital products.
-          </h2>
+          </motion.h2>
         </div>
 
-        <div className="relative border-l border-white/20 pl-6 sm:pl-8">
+        <motion.div variants={staggerContainer} className="relative border-l border-white/20 pl-6 sm:pl-8">
           {experience.map((item, index) => (
-            <article
+            <motion.article
               key={`${item.company}-${item.role}`}
+              variants={staggerItem}
               className={index === experience.length - 1 ? "relative" : "relative pb-10"}
             >
               <span className="absolute -left-[31px] top-1 h-3.5 w-3.5 rounded-full border-2 border-[color:var(--surface)] bg-[color:var(--brand)] sm:-left-[39px]" />
@@ -43,10 +64,10 @@ export default function Experience() {
                   </li>
                 ))}
               </ul>
-            </article>
+            </motion.article>
           ))}
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 }

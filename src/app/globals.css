@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f4f7ff;
-  --surface: #fbfcff;
-  --text-strong: #12182f;
-  --text-muted: #4b567d;
-  --brand: #0f8f9b;
-  --brand-soft: rgba(15, 143, 155, 0.3);
-  --accent-soft: rgba(245, 167, 83, 0.28);
+  --bg: #050816;
+  --surface: #0b1222;
+  --surface-strong: #101a33;
+  --text-strong: #eff6ff;
+  --text-muted: #91a4c7;
+  --brand: #39d7ff;
+  --brand-soft: rgba(57, 215, 255, 0.22);
+  --accent-soft: rgba(107, 84, 255, 0.18);
 }
 
 @theme inline {
@@ -24,11 +25,120 @@ body {
   color: var(--text-strong);
   font-family: var(--font-display), "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at 12% 16%, rgba(15, 143, 155, 0.18), transparent 38%),
-    radial-gradient(circle at 90% 12%, rgba(245, 167, 83, 0.2), transparent 34%),
-    linear-gradient(180deg, #f7faff 0%, #e9f0ff 100%);
+    radial-gradient(circle at 18% 15%, rgba(57, 215, 255, 0.12), transparent 32%),
+    radial-gradient(circle at 82% 10%, rgba(107, 84, 255, 0.14), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(57, 215, 255, 0.08), transparent 38%),
+    linear-gradient(180deg, #050816 0%, #081223 48%, #050816 100%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    linear-gradient(120deg, rgba(57, 215, 255, 0.04), transparent 35%),
+    linear-gradient(300deg, rgba(107, 84, 255, 0.05), transparent 42%);
+  animation: auraDrift 18s ease-in-out infinite alternate;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@keyframes auraDrift {
+  from {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(1.5%, 1%, 0) scale(1.03);
+  }
+}
+
+@keyframes skillPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(57, 215, 255, 0);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  50% {
+    box-shadow: 0 0 22px rgba(57, 215, 255, 0.16);
+    border-color: rgba(57, 215, 255, 0.38);
+  }
+}
+
+@keyframes heroGlow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translate3d(0, -10px, 0) scale(1.05);
+  }
+}
+
+.hero-aurora {
+  animation: heroGlow 14s ease-in-out infinite;
+}
+
+.logo-glow {
+  text-shadow: 0 0 18px rgba(57, 215, 255, 0.18);
+}
+
+.glow-cta {
+  box-shadow: 0 0 0 1px rgba(57, 215, 255, 0.18), 0 0 26px rgba(57, 215, 255, 0.16);
+}
+
+.glow-cta:hover {
+  box-shadow: 0 0 0 1px rgba(57, 215, 255, 0.32), 0 0 36px rgba(57, 215, 255, 0.24);
+}
+
+.skill-chip {
+  animation: skillPulse 4.5s ease-in-out infinite;
+}
+
+.skill-chip:nth-child(2n) {
+  animation-delay: 0.6s;
+}
+
+.skill-chip:nth-child(3n) {
+  animation-delay: 1.1s;
+}
+
+.cursor-ring,
+.cursor-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.cursor-ring {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(57, 215, 255, 0.44);
+  background: rgba(57, 215, 255, 0.07);
+  box-shadow: 0 0 24px rgba(57, 215, 255, 0.12);
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0 16px rgba(57, 215, 255, 0.3);
+}
+
+@media (max-width: 767px) {
+  body::before {
+    animation: none;
+  }
 }
