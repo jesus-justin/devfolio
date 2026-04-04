@@ -463,6 +463,30 @@ export default function BentoDashboard() {
             <IconButton {...socialLinks[1]} />
             <IconButton {...socialLinks[0]} />
           </div>
+          <div className="mt-5 space-y-3">
+            <a
+              href="https://github.com/jesus-justin"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white transition-colors hover:border-[rgba(255,107,53,0.28)] hover:bg-white/8"
+            >
+              <span>GitHub</span>
+              <span className="text-[0.75rem] uppercase tracking-[0.22em] text-[color:var(--text-muted)]">
+                View profile
+              </span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jesus-justin-mercado-5a864933b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white transition-colors hover:border-[rgba(255,107,53,0.28)] hover:bg-white/8"
+            >
+              <span>LinkedIn</span>
+              <span className="text-[0.75rem] uppercase tracking-[0.22em] text-[color:var(--text-muted)]">
+                Connect
+              </span>
+            </a>
+          </div>
           <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
             <p className="text-xs uppercase tracking-[0.28em] text-[color:var(--text-muted)]">
               Direct contact
