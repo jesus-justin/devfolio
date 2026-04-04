@@ -4,6 +4,7 @@ const certifications = [
     fileName: "ai bootcamp cop certificate.png",
     type: "image",
     issuer: "AI Bootcamp Program",
+    badge: "Completion",
     description:
       "Recognizes successful completion of an intensive training program focused on practical AI tools and workflows.",
   },
@@ -12,6 +13,7 @@ const certifications = [
     fileName: "basic cybersecurity.pdf",
     type: "pdf",
     issuer: "Professional Certification Program",
+    badge: "Security",
     description:
       "Covers core cybersecurity principles including threat awareness, secure practices, and digital risk reduction.",
   },
@@ -20,6 +22,7 @@ const certifications = [
     fileName: "AI Fundamentals.pdf",
     type: "pdf",
     issuer: "Professional Certification Program",
+    badge: "AI",
     description:
       "Validates foundational knowledge in AI concepts, terminology, and introductory model-driven problem solving.",
   },
@@ -29,6 +32,7 @@ const certifications = [
       "Certificate of Participation Mercado - Safeguarding Digital Freedom and Resilience.pdf",
     type: "pdf",
     issuer: "Academic Symposium",
+    badge: "Participation",
     description:
       "Acknowledges active participation in a professional forum on digital rights, security, and resilience strategies.",
   },
@@ -37,6 +41,7 @@ const certifications = [
     fileName: "data science and analytics.pdf",
     type: "pdf",
     issuer: "Professional Certification Program",
+    badge: "Analytics",
     description:
       "Demonstrates competency in data analysis workflows, statistical thinking, and insight-driven decision support.",
   },
@@ -45,6 +50,7 @@ const certifications = [
     fileName: "certificate datacamp intermediate python.pdf",
     type: "pdf",
     issuer: "DataCamp",
+    badge: "Python",
     description:
       "Confirms intermediate proficiency in Python for data handling, transformation, and analytical scripting tasks.",
   },
@@ -53,6 +59,7 @@ const certifications = [
     fileName: "Sales Forecasting.pdf",
     type: "pdf",
     issuer: "Professional Certification Program",
+    badge: "Forecasting",
     description:
       "Highlights practical understanding of forecasting techniques used to estimate trends and support planning decisions.",
   },
